@@ -69,4 +69,13 @@ export class ProductResolver {
     products() {
         return Product.find();
     }
+
+    // Query decorator --> fetch stuff
+    // Return the product with given id
+    @Query(() => Product)
+    product(
+        @Arg("id", () => Int) id: number
+    ) {
+        return Product.findOne(id)
+    }
 }

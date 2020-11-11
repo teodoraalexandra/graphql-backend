@@ -7,6 +7,10 @@ import { ProductResolver } from "./resolvers/ProductResolver";
 
 (async () => {
   const app = express();
+  const cors = require("cors")
+  const bodyParser = require("body-parser");
+  app.use(cors());
+  app.use(bodyParser.json());
 
   const options = await getConnectionOptions(
     process.env.NODE_ENV || "development"
